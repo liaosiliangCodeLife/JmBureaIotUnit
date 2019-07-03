@@ -24,7 +24,6 @@ import java.util.List;
 public class JmMqttDataUnity  {
     private static JmMqttDataUnity instance = null;
     private HashMap<String, JmDevicesDataType> devHashTable = null;
-    private List<JmDevicesDataType> devListTable = null;
 
     @Autowired
     private  JmMqttSendData sendOutData;
@@ -46,7 +45,7 @@ public class JmMqttDataUnity  {
     @PostConstruct
     private void initTheInstance(){
        devHashTable = new HashMap<String, JmDevicesDataType>();
-       devListTable = handleDataTable.selectAllDevPoint();
+       List<JmDevicesDataType> devListTable = handleDataTable.selectAllDevPoint();
         for(int i=0; i<devListTable.size(); i++){
             JmDevicesDataType iTmp = devListTable.get(i);
             devHashTable.put(iTmp.getOnlyOne(), iTmp);
@@ -97,7 +96,7 @@ public class JmMqttDataUnity  {
      * @return java.util.List<com.Jm.JmDataBase.DataType.JmDevicesDataType>
      **/
     public List<JmDevicesDataType> getDevListData(){
-        return this.devListTable;
+       return  handleDataTable.selectAllDevPoint();
     }
 
     /*

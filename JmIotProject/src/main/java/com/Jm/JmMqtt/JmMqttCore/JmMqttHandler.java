@@ -87,7 +87,7 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
                 JmMqttDataUnity.getInstance().getHandleDataTable().insertDevPoint(iTmpType);
                 JmMqttDataUnity.getInstance().getDevHashTable().put(iTmpType.getOnlyOne(),iTmpType);
             }else{
-                iBack.setResultCode(JmMqttUntils.ALREADY_EXITS_CODE);
+                iBack.setResultCode(JmMqttUntils.ALREADY_REGISTER_CODE);
                 mqttLogger.error("====================Error Start============================");
                 mqttLogger.error("The Devices Onlyone Num: ", iTmpType.getOnlyOne());
                 mqttLogger.error("The Devices Id: ", iTmpType.getDevId());

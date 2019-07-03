@@ -1,10 +1,18 @@
 package com.Jm.JmHttp.controler;
 
+import com.Jm.JmDataBase.DataType.HttpResonseData;
+import com.Jm.JmDataBase.DataType.JmDevicesDataType;
+import com.Jm.JmMqtt.JmMqttCore.JmMqttDataUnity;
 import com.Jm.JmMqtt.JmMqttInterface.JmMqttSendData;
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /*
  *@ProjectName Jm Burea Iot Project
@@ -16,16 +24,25 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class TestControler {
-    @Autowired
-    private JmMqttSendData sendOutData;
-
 
     @RequestMapping("/")
     @ResponseBody
     public String HandleTest() throws NoSuchMethodException {
         System.out.println("Fuck Is Here");
-        sendOutData.SendDataWithTopic(".......///////","/test");
         return "Hello ni Ma Bi";
     }
+
+    @RequestMapping("/getAllDev")
+    @ResponseBody
+    public String handleGetAll(){
+        List<JmDevicesDataType> tmp = JmMqttDataUnity.getInstance().getDevListData();
+        List<HttpResonseData> httpData = new ArrayList<>();
+        for(int i =0; i<tmp.size(); i++){
+            HttpResonseData iTmp = new HttpResonseData(tmp.get(i));
+            httpData.add(iTmp);
+        }
+        return JSON.toJSONString(httpData);
+    }
+
 
 }

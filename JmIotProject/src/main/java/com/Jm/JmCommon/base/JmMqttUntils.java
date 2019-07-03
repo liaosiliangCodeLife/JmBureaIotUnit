@@ -31,7 +31,7 @@ public class JmMqttUntils {
     static public final int FAN_CODE = 3;
 
     static public final int OK_CODE = 0;
-    static public final int ALREADY_EXITS_CODE = 101;
+    static public final int ALREADY_REGISTER_CODE = 101;
 
     static public final String[] DEV_TYPE_MAP = {"", HUM_STR, TEM_STR, FAN_STR};
     static public final String[] DEV_UNITY_MAP = {"", "%", "C", "rod"};

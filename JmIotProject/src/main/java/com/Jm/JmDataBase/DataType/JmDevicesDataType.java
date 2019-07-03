@@ -1,13 +1,18 @@
 package com.Jm.JmDataBase.DataType;
 
 import com.Jm.JmCommon.base.JmMqttUntils;
+import com.Jm.JmCommon.common.DateUtils;
 import com.Jm.JmCommon.excel.Excel;
 import com.Jm.JmMqtt.JmMqttData.JmRegMsg;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class JmDevicesDataType implements Serializable {
@@ -34,6 +39,7 @@ public class JmDevicesDataType implements Serializable {
     public void setSearcid(long vSearchId){
         this.mSearchId = vSearchId;
     }
+    @JSONField(serialize = false)
     public long getSearchid(){
         return this.mSearchId;
     }
@@ -43,6 +49,7 @@ public class JmDevicesDataType implements Serializable {
     public void setOnlyOne(String vOlny){
         this.mOnlyOne = vOlny;
     }
+    @JSONField(name = "DevicesOnlyOneId")
     public String getOnlyOne(){
         return this.mOnlyOne;
     }
@@ -52,6 +59,7 @@ public class JmDevicesDataType implements Serializable {
     public void setDevId(String vId){
         this.mDevId = vId;
     }
+    @JSONField(name = "DevicesId")
     public String getDevId(){
         return this.mDevId;
     }
@@ -61,6 +69,7 @@ public class JmDevicesDataType implements Serializable {
     public void setDevType(String vTyp){
         this.mDevType = vTyp;
     }
+    @JSONField(name = "DeviceType")
     public String getDevType(){
         return this.mDevType;
     }
@@ -71,6 +80,7 @@ public class JmDevicesDataType implements Serializable {
     public void setUpdateTime(Date vDate){
         this.mDevUpdateTime = vDate;
     }
+    @JSONField(serialize = false)
     public Date getUpdatetime(){
         return this.mDevUpdateTime;
     }
@@ -80,6 +90,7 @@ public class JmDevicesDataType implements Serializable {
     public void setDevMac(String vMac){
         this.mDevMac = vMac;
     }
+    @JSONField(name = "DeviceMac")
     public String getDevMac(){
         return this.mDevMac;
     }
@@ -89,6 +100,7 @@ public class JmDevicesDataType implements Serializable {
     public void setDevIp(String vIp){
         this.mDevIp = vIp;
     }
+    @JSONField(name = "DeviceIp")
     public String getDevIp(){
         return this.mDevIp;
     }
@@ -99,6 +111,7 @@ public class JmDevicesDataType implements Serializable {
     public void setRegisterTime(Date vDate){
         this.mRegisterTime = vDate;
     }
+    @JSONField(serialize = false)
     public Date getRegisterTime(){
         return this.mRegisterTime;
     }
@@ -108,6 +121,7 @@ public class JmDevicesDataType implements Serializable {
     public void setOnLine(String vOnline){
         this.mIsOnline = vOnline;
     }
+    @JSONField(name = "Status")
     public String getOnline(){
         return this.mIsOnline;
     }
@@ -117,6 +131,7 @@ public class JmDevicesDataType implements Serializable {
     public void setValue(String vValue){
         this.mValue = vValue;
     }
+    @JSONField(name = "Value")
     public String getValue(){
         return this.mValue;
     }
@@ -126,6 +141,7 @@ public class JmDevicesDataType implements Serializable {
     public void setAlarmVakue(String vAlarm){
         this.mAlarmValue = vAlarm;
     }
+    @JSONField(name = "ALarmValue")
     public String getAlarmValue(){
         return this.mAlarmValue;
     }
@@ -135,6 +151,7 @@ public class JmDevicesDataType implements Serializable {
     public void setUnity(String vUnity){
         this.mUnity = vUnity;
     }
+    @JSONField(name = "Unity")
     public String getUnidity(){
         return this.mUnity;
     }
@@ -144,6 +161,7 @@ public class JmDevicesDataType implements Serializable {
     public void setRemarkLabel(String vMrk){
         this.mRemarkLabel = vMrk;
     }
+    @JSONField(name = "Remark")
     public String getRemark(){
         return this.mRemarkLabel;
     }
@@ -166,6 +184,22 @@ public class JmDevicesDataType implements Serializable {
                 .append("mqtt_devUnity",getUnidity())
                 .toString();
 
+    }
+
+    @JSONField(name="RegisterTime")
+    public String getForJsonRegTime() {
+       return DateUtils.parseDateToStr(DateUtils.YYYY_MM_DD_HH_MM_SS, this.mRegisterTime);
+    }
+
+    @JSONField(name = "DeviceUpdateTime")
+    public String getForJsonUpTime(){
+        return DateUtils.parseDateToStr(DateUtils.YYYY_MM_DD_HH_MM_SS, this.mDevUpdateTime);
+    }
+
+
+
+    public String forJsonString(){
+        return JSONObject.toJSONString(this);
     }
 
 }
