@@ -3,15 +3,13 @@ package com.Jm.JmHttp.controler;
 import com.Jm.JmDataBase.DataType.HttpResonseData;
 import com.Jm.JmDataBase.DataType.JmDevicesDataType;
 import com.Jm.JmMqtt.JmMqttCore.JmMqttDataUnity;
-import com.Jm.JmMqtt.JmMqttInterface.JmMqttSendData;
 import com.alibaba.fastjson.JSON;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /*
@@ -44,5 +42,18 @@ public class TestControler {
         return JSON.toJSONString(httpData);
     }
 
+    /*
+     * @Author Liaosiliang
+     * @Description //TODO
+     * @Date 下午4:39 2019/7/5
+     * @Param [id]
+     * @return java.lang.String
+     **/
+    @RequestMapping("/testSetAlarm/{id}")
+    @ResponseBody
+    public String testAlarm(@PathVariable("id") String id){
+        JmMqttDataUnity.getInstance().setDevicesAlarmValue(10000, id);
+        return id;
+    }
 
 }

@@ -1,10 +1,13 @@
 package com.Jm.JmMqtt.JmMqttCore;
 
+import com.Jm.JmCommon.base.JmMqttUntils;
 import com.Jm.JmDataBase.DataType.JmDeviceEventRecordType;
 import com.Jm.JmDataBase.DataType.JmDevicesDataType;
 import com.Jm.JmDataBase.JmServices.JmDevicesDataServices;
 import com.Jm.JmDataBase.JmServices.JmDevicesEventServices;
+import com.Jm.JmMqtt.JmMqttData.JmSetAlarmValue;
 import com.Jm.JmMqtt.JmMqttInterface.JmMqttSendData;
+import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -110,6 +113,34 @@ public class JmMqttDataUnity  {
         return this.handleDataEventTable;
     }
 
+    /*
+     * @Author Liaosiliang
+     * @Description //TODO 
+     * @Date 下午4:25 2019/7/5
+     * @Param [value, vOnlyId]
+     * @return void
+     **/
+    public void setDevicesAlarmValue(float value, String vOnlyId){
+        JmDevicesDataType iData = this.devHashTable.get(vOnlyId);
+        JmDeviceEventRecordType iRec = new JmDeviceEventRecordType();
+        String iTopic = JmMqttUntils.SET_VALUE_PREFIX + iData.getDevId();
+        iData.setAlarmVakue(Float.toString(value));
+
+        iRec.fillWithDevType(iData);
+        iRec.setAction("SetAlarmValue");
+        iRec.setTopic(iTopic);
+        iRec.setmUser("admin");
+
+        this.handleDataTable.updateDevPonit(iData);
+        this.handleDataEventTable.insertRecord(iRec);
+
+        JmSetAlarmValue iSet = new JmSetAlarmValue();
+        iSet.setDevAlarmValue(Float.floatToIntBits(value*100));
+        iSet.setDevId(iData.getDevId());
+        iSet.setDevType(Integer.parseInt(iData.getOnlyOne().split("@")[1]));
+        this.sendOutData.SendDataWithTopic(JSON.toJSONString(iSet), iTopic);
+    }
+    
     /*
      * @Author Liaosiliang
      * @Description //TODO
