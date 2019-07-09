@@ -35,11 +35,11 @@ Push Topic:/Jm/Iot/ReportEvent
 
 ### 目的：设备监控告警
 Push Topic:/Jm/Iot/AlarmRport
-Push Topic:/Jm/Iot/ReportEvent
 格式{"devid":"123456","value":34.8,"type":123,"alarm_value":999}
 
 ### 目的:设置设备监测阀值或控制设备
 Sub Topic:/Jm/Iot/Setvalue/[devid]
+格式{"devid":"123456","value":34.8,"type":12}
 策略：监测到devid和自己的devid一致就设置
 
 ### 目的： 控制接口
