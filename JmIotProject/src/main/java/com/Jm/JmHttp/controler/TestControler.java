@@ -22,14 +22,26 @@ import java.util.List;
  */
 @RestController
 public class TestControler {
-
+    /*
+     * @Author Liaosiliang
+     * @Description //TODO
+     * @Date 11:43 2019/7/21
+     * @Param []
+     * @return java.lang.String
+     **/
     @RequestMapping("/")
     @ResponseBody
     public String HandleTest() throws NoSuchMethodException {
-        System.out.println("Fuck Is Here");
         return "Hello ni Ma Bi";
     }
 
+    /*
+     * @Author Liaosiliang
+     * @Description //TODO
+     * @Date 11:43 2019/7/21
+     * @Param []
+     * @return java.lang.String
+     **/
     @RequestMapping("/getAllDev")
     @ResponseBody
     public String handleGetAll(){
