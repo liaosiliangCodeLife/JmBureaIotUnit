@@ -69,7 +69,7 @@ public class JmMqttSubscriberConfigure {
         ApplicationContext iConfigContex = new AnnotationConfigApplicationContext(JmMqttConfigure.class);
         MqttPahoClientFactory iFactory = (MqttPahoClientFactory) iConfigContex.getBean("JmMqttClientFactory");
 
-        String iClientId =clientIdPrefix + "www_" + DateUtils.dateTimeNow(DateUtils.YYYY_MM_DD_HH_MM_SS);
+        String iClientId =clientIdPrefix + "www_" + DateUtils.dateTimeNow(DateUtils.YYYYMMDDHHMMSS);
 
         MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter(
                 iClientId,

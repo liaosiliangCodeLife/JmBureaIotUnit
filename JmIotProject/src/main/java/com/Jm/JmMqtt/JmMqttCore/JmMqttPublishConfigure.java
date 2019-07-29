@@ -40,7 +40,7 @@ public class JmMqttPublishConfigure {
     public MessageHandler mqttOutbound() {
         ApplicationContext iConfigContex = new AnnotationConfigApplicationContext(JmMqttConfigure.class);
         MqttPahoClientFactory iFactory = (MqttPahoClientFactory) iConfigContex.getBean("JmMqttClientFactory");
-        String iClientId =pubClientIdPrefix + "mmm_" + DateUtils.dateTimeNow(DateUtils.YYYY_MM_DD_HH_MM_SS);
+        String iClientId =pubClientIdPrefix + "mmm_" + DateUtils.dateTimeNow(DateUtils.YYYYMMDDHHMMSS);
 
         MqttPahoMessageHandler messageHandler =  new MqttPahoMessageHandler(iClientId, iFactory);
         messageHandler.setAsync(true);
