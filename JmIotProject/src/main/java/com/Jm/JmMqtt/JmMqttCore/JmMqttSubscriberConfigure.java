@@ -1,6 +1,7 @@
 package com.Jm.JmMqtt.JmMqttCore;
 
 import com.Jm.JmCommon.base.JmMqttUntils;
+import com.Jm.JmCommon.common.DateUtils;
 import com.Jm.JmMqtt.JmMqttInterface.JmMqttHandlerServices;
 import com.Jm.JmThreadPool.JmAsynServices;
 import org.slf4j.Logger;
@@ -68,12 +69,14 @@ public class JmMqttSubscriberConfigure {
         ApplicationContext iConfigContex = new AnnotationConfigApplicationContext(JmMqttConfigure.class);
         MqttPahoClientFactory iFactory = (MqttPahoClientFactory) iConfigContex.getBean("JmMqttClientFactory");
 
+        String iClientId =clientIdPrefix + "www_" + DateUtils.dateTimeNow(DateUtils.YYYY_MM_DD_HH_MM_SS);
+
         MqttPahoMessageDrivenChannelAdapter adapter = new MqttPahoMessageDrivenChannelAdapter(
-                clientIdPrefix + "www",
+                iClientId,
                 iFactory,
                 "/Test"
         );
-        mqttLogger.info("Mqtt subscrible the with client id: " + clientIdPrefix + "www");
+        mqttLogger.info("Mqtt subscrible the with client id: " + iClientId);
         String[] iTopics = JmMqttUntils.getAllTopicFromClass(JmMqttHandler.class);
 
         for(int i =0; i< iTopics.length; i++){
