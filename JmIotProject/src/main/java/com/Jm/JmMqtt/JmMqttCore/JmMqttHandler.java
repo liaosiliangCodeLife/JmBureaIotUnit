@@ -38,8 +38,14 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
      * @Param [vTopic, vPayload, vAction]
      * @return void
      **/
-    private void handleCommonMsg(String vTopic, String vPayload, String vAction){
+    private boolean handleCommonMsg(String vTopic, String vPayload, String vAction){
         JmReportEventMsg iRepMsg = JSON.parseObject(vPayload, JmReportEventMsg.class);
+
+        if(!iRepMsg.CheckDataValid()){
+            mqttLogger.error("Invalid Report Message : " + mqttLogger + "  With Topic : " + vTopic);
+            return false;
+        }
+
         String iOnlyId = iRepMsg.getDevId() + "@" + iRepMsg.getDevType();
         JmDevicesDataType iSearch = JmMqttDataUnity.getInstance().getDevHashTable().get(iOnlyId);
         if( null != iSearch ){
@@ -55,10 +61,12 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
             JmMqttDataUnity.getInstance().getRecordTable().insertRecord(iRec);
             JmMqttDataUnity.getInstance().getDevHashTable().remove(iOnlyId);
             JmMqttDataUnity.getInstance().getDevHashTable().put(iOnlyId, iSearch);
+            return true;
         }else{
             mqttLogger.error("====================Error Start============================");
             mqttLogger.error("The Devices Report Msg:  "+ vPayload + "  Not Exits Pls Check!!!");
             mqttLogger.error("====================Error End===============================");
+            return false;
         }
     }
     
@@ -72,6 +80,12 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
     @SubTopic(name = "/Jm/Iot/RegisterDevice")
     private void handleRegisterMsg(String vTopic, String vPayload){
         JmRegMsg iRegMsg = JSON.parseObject(vPayload, JmRegMsg.class);
+
+        if(!iRegMsg.CheckDataValid()){
+            mqttLogger.error("Invalid Json Data:"+  vPayload + "With Topic : "  + vTopic);
+            return;
+        }
+
         String iGenId = JmMqttUntils.generateDevId(iRegMsg.getSnNum() + iRegMsg.getMacAddr());
         JmRegBackMsg iBack = new JmRegBackMsg(iRegMsg);
 
@@ -79,6 +93,15 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
         int[] typeMap = iRegMsg.getTypeArry();
 
         for(int i=0; i<typeMap.length; i++){
+
+            if( JmMqttUntils.DEV_TYPE_MAP.length < typeMap[i] ||
+                    null == JmMqttUntils.DEV_TYPE_MAP[typeMap[i]] ||
+                    JmMqttUntils.DEV_TYPE_MAP[typeMap[i]].equals(""))
+            {
+                mqttLogger.error("Not Suport the Type " +  typeMap[i]);
+                continue;
+            }
+
             JmDevicesDataType iTmpType = new JmDevicesDataType();
             iTmpType.fillInfoWithRegMsg(iRegMsg,iGenId,typeMap[i]);
 
@@ -96,6 +119,7 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
                 mqttLogger.error("====================Error End===============================");
             }
         }
+
         JmMqttDataUnity.getInstance().SendOutDataByTopic(
                 JmMqttPublishConfigure.JMREG_BACK_MSG_PREFIX + iRegMsg.getMacAddr(),
                 JSON.toJSONString(iBack)
@@ -113,8 +137,8 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
     private void handleReportEventMsg(String vTopic, String vPayload){
         System.out.println("Msg: " + vPayload);
         handleCommonMsg(vTopic, vPayload, "ReportEvent");
-        ExcelUtil<JmDeviceEventRecordType> util = new ExcelUtil<JmDeviceEventRecordType>(JmDeviceEventRecordType.class);
-        util.exportExcel(JmMqttDataUnity.getInstance().getRecordTable().selectAllMqttDevicesRecord(), "TestExcel");
+       // ExcelUtil<JmDeviceEventRecordType> util = new ExcelUtil<JmDeviceEventRecordType>(JmDeviceEventRecordType.class);
+        //util.exportExcel(JmMqttDataUnity.getInstance().getRecordTable().selectAllMqttDevicesRecord(), "TestExcel");
     }
 
     /*
@@ -137,7 +161,6 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
      * @return boolean
      **/
     private boolean isTopic(String vName, String vTopic){
-       // System.out.println("Name: " + vName + " Topic: " + vTopic);
         if( vName.equals(vTopic)){
             return true;
         }else if(vName.contains("#")){
@@ -167,12 +190,16 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
                     return;
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
+                    mqttLogger.error("Cant access the Method: " + vTopic + " With Msg :" + vPayload);
+                    return ;
                 } catch (InvocationTargetException e) {
                     e.printStackTrace();
                     mqttLogger.error("Can not get the Topic method :" + vTopic + " with msg: " + vPayload);
+                    return ;
                 }
             }else if( i ==  iMethod.length -1){
                 mqttLogger.error("Can not Solve the Topic method :" + vTopic + " with msg: " + vPayload);
+                return ;
             }
         }
     }

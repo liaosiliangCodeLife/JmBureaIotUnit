@@ -46,4 +46,14 @@ public class JmReportEventMsg {
     public int getAlarmValue() {
         return this.alarmValue;
     }
+
+    public boolean CheckDataValid(){
+        if((devId != null) &&
+          (!devId.equals(""))
+        ){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }

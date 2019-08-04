@@ -38,6 +38,8 @@ public class JmMqttDataUnity  {
     @Autowired
     @Qualifier("useForJmDevicesReportEventServices")
     private JmDevicesEventServices handleDataEventTable;
+
+
     /*
      * @Author Liaosiliang
      * @Description //Init function
@@ -58,7 +60,8 @@ public class JmMqttDataUnity  {
         instance = this;
     }
 
-   /*
+
+    /*
     * @Author Liaosiliang
     * @Description //TODO
     * @Date 上午4:52 2019/6/30
@@ -68,6 +71,7 @@ public class JmMqttDataUnity  {
    public void SendOutDataByTopic(String vTopic, String vData){
         sendOutData.SendDataWithTopic( vData,vTopic);
     }
+
 
     /*
      * @Author Liaosiliang
@@ -91,6 +95,7 @@ public class JmMqttDataUnity  {
         return this.devHashTable;
     }
 
+
     /*
      * @Author Liaosiliang
      * @Description //TODO
@@ -102,6 +107,7 @@ public class JmMqttDataUnity  {
        return  handleDataTable.selectAllDevPoint();
     }
 
+
     /*
      * @Author Liaosiliang
      * @Description //TODO
@@ -112,6 +118,7 @@ public class JmMqttDataUnity  {
     public JmDevicesEventServices getRecordTable(){
         return this.handleDataEventTable;
     }
+
 
     /*
      * @Author Liaosiliang
@@ -140,7 +147,8 @@ public class JmMqttDataUnity  {
         iSet.setDevType(Integer.parseInt(iData.getOnlyOne().split("@")[1]));
         this.sendOutData.SendDataWithTopic(JSON.toJSONString(iSet), iTopic);
     }
-    
+
+
     /*
      * @Author Liaosiliang
      * @Description //TODO

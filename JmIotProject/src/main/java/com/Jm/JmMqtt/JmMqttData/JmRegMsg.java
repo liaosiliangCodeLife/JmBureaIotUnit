@@ -52,4 +52,26 @@ public class JmRegMsg  {
     public String toString() {
          return JSONObject.toJSONString(this);
     }
+    
+    /*
+     * @Author Liaosiliang
+     * @Description //TODO 
+     * @Date 20:32 2019/8/4
+     * @Param []
+     * @return boolean
+     **/
+    public boolean CheckDataValid(){
+        if((typeArray != null) &&
+           (ipAddr != null) &&
+           (!ipAddr.equals("")) &&
+           (snNum != null) &&
+           (!snNum.equals(""))&&
+           (macAddr != null) &&
+           (!macAddr.equals(""))
+        ){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
