@@ -24,7 +24,7 @@ public class JmDeviceEventRecordType extends JmDevicesDataType {
 
     public void fillWithReportMsg(JmReportEventMsg vMsg, String vTopic){
         setTopic(vTopic);
-        setReslut(Double.toString(vMsg.getDevValue()/100) + this.getUnidity());
+        setReslut(Double.toString(new Double(vMsg.getDevValue())/new Double(100.00)) + this.getUnidity());
     }
 
     @Excel(name = "Squeences Id")
