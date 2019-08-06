@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Jm.JmDataBase.mapper.JmDeviceDataMapper">
+    <resultMap type="JmDevicesDataType" id="JmDevicesDataTypeReslut">
+        <id property="mSearchId"         column="mqtt_devsearchId"/>
+        <result property="mOnlyOne"      column="mqtt_devonlyId"/>
+        <result property="mDevId"        column="mqtt_devid"/>
+        <result property="mDevType"      column="mqtt_devType"/>
+        <result property="mDevUpdateTime" column="mqtt_devUpTime"/>
+        <result property="mDevMac"       column="mqtt_devMac"/>
+        <result property="mDevIp"        column="mqtt_devIp"/>
+        <result property="mRegisterTime" column="mqtt_devRegTime"/>
+        <result property="mValue"        column="mqtt_devValue"/>
+        <result property="mIsOnline"     column="mqtt_devIsOnline"/>
+        <result property="mAlarmValue"   column="mqtt_devAlarmValue"/>
+        <result property="mUnity"        column="mqtt_devUnity"/>
+        <result property="mRemarkLabel"  column="mqtt_devMark"/>
+    </resultMap>
+
+    <sql id="mqttDevPointV">
+      select mqtt_devsearchId, mqtt_devonlyId,mqtt_devid,mqtt_devType,mqtt_devUpTime,mqtt_devMac,mqtt_devIp,mqtt_devRegTime,mqtt_devValue,
+             mqtt_devIsOnline,mqtt_devAlarmValue,mqtt_devUnity,mqtt_devMark
+      from Jm_IotDevicesData_Table p
+    </sql>
+
+    <select id="selectListById" parameterType="String" resultMap="JmDevicesDataTypeReslut">
+      <include refid="mqttDevPointV"/>
+      where p.mqtt_devid = #{devId}
+    </select>
+
+    <select id="selectListByType" parameterType="String" resultMap="JmDevicesDataTypeReslut">
+      <include refid="mqttDevPointV"/>
+      where  p.mqtt_devType = #{type}
+      order by p.mqtt_devRegTime
+    </select>
+
+    <select id="selectListByIp" parameterType="String" resultMap="JmDevicesDataTypeReslut">
+        <include refid="mqttDevPointV"/>
+        where  p.mqtt_devIp = #{Ip}
+        order by p.mqtt_devRegTime
+    </select>
+
+    <select id="slectListByMac" parameterType="String" resultMap="JmDevicesDataTypeReslut">
+        <include refid="mqttDevPointV"/>
+        where  p.mqtt_devMac = #{Mac}
+        order by p.mqtt_devRegTime
+    </select>
+
+    <select id="selectAllDevPoint" resultMap="JmDevicesDataTypeReslut">
+        <include refid="mqttDevPointV"/>
+        order by p.mqtt_devsearchId
+    </select>
+
+    <update id="updateDevPonit" parameterType="JmDevicesDataType">
+      update Jm_IotDevicesData_Table
+      <set>
+          <if test="mOnlyOne != null and mOnlyOne != ''" >          mqtt_devonlyId = #{mOnlyOne},</if>
+          <if test="mDevId != null and mDevType != ''">             mqtt_devid = #{mDevId},</if>
+          <if test="mDevType != null and mDevType != ''">           mqtt_devType =  #{mDevType},</if>
+          <if test="mDevMac != null and mDevType != ''">            mqtt_devMac = #{mDevMac},</if>
+          <if test="mDevIp != null and mDevIp != ''">               mqtt_devIp = #{mDevIp},</if>
+          <if test="mValue != null and mDevType != ''">             mqtt_devValue = #{mValue} ,</if>
+          <if test="mIsOnline != null and mDevType != ''">          mqtt_devIsOnline =  #{mIsOnline},</if>
+          <if test="mAlarmValue != null and mDevType != ''">        mqtt_devAlarmValue = #{mAlarmValue},</if>
+          <if test="mUnity != null and mDevType != ''">             mqtt_devUnity = #{mUnity} ,</if>
+          <if test="mRemarkLabel != null and mDevType != ''">       mqtt_devMark = #{mRemarkLabel},</if>
+          mqtt_devRegTime = #{mRegisterTime},
+          mqtt_devUpTime = sysdate()
+      </set>
+      where mqtt_devsearchId = ${mSearchId}
+    </update>
+
+
+    <insert id="insertDevPoint" parameterType="JmDevicesDataType">
+        insert into Jm_IotDevicesData_Table(
+        <if test="mOnlyOne != null and mOnlyOne != ''" >    mqtt_devonlyId,</if>
+        <if test="mDevId != null and mDevType != ''">             mqtt_devid,</if>
+        <if test="mDevType != null and mDevType != ''">           mqtt_devType,</if>
+        <if test="mDevMac != null and mDevMac != ''">            mqtt_devMac,</if>
+        <if test="mDevIp != null and mDevIp != ''">               mqtt_devIp,</if>
+        <if test="mValue != null and mValue != ''">             mqtt_devValue,</if>
+        <if test="mIsOnline != null and mIsOnline != ''">          mqtt_devIsOnline,</if>
+        <if test="mAlarmValue != null and mAlarmValue != ''">        mqtt_devAlarmValue,</if>
+        <if test="mUnity != null and mUnity != ''">             mqtt_devUnity,</if>
+        <if test="mRemarkLabel != null and mRemarkLabel != ''">       mqtt_devMark,</if>
+        mqtt_devRegTime,
+        mqtt_devUpTime
+        )values(
+        <if test="mOnlyOne != null and mOnlyOne != ''" >        #{mOnlyOne},</if>
+        <if test="mDevId != null and mDevId != ''">             #{mDevId},</if>
+        <if test="mDevType != null and mDevType != ''">           #{mDevType},</if>
+        <if test="mDevMac != null and mDevMac != ''">            #{mDevMac},</if>
+        <if test="mDevIp != null and mDevIp != ''">               #{mDevIp},</if>
+        <if test="mValue != null and mValue != ''">             #{mValue},</if>
+        <if test="mIsOnline != null and mIsOnline != ''">          #{mIsOnline},</if>
+        <if test="mAlarmValue != null and mAlarmValue != ''">        #{mAlarmValue},</if>
+        <if test="mUnity != null and mUnity != ''">             #{mUnity},</if>
+        <if test="mRemarkLabel != null and mRemarkLabel != ''">       #{mRemarkLabel},</if>
+        sysdate(),
+        sysdate()
+        )
+    </insert>
+</mapper>

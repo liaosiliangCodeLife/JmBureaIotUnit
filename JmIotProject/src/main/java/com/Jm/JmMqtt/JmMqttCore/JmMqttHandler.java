@@ -49,8 +49,8 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
         String iOnlyId = iRepMsg.getDevId() + "@" + iRepMsg.getDevType();
         JmDevicesDataType iSearch = JmMqttDataUnity.getInstance().getDevHashTable().get(iOnlyId);
         if( null != iSearch ){
-            iSearch.setAlarmVakue(Double.toString(iRepMsg.getAlarmValue()/100));
-            iSearch.setValue(Double.toString(iRepMsg.getDevValue()/100));
+            iSearch.setAlarmVakue(Double.toString(new  Double(iRepMsg.getAlarmValue())/new Double(100.00)));
+            iSearch.setValue(Double.toString(new Double(iRepMsg.getDevValue())/new Double(100.00)));
 
             JmDeviceEventRecordType iRec = new JmDeviceEventRecordType();
             iRec.fillWithDevType(iSearch);
