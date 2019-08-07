@@ -35,7 +35,7 @@ public class JmMqttUntils {
     static public final String SET_VALUE_PREFIX = "/Jm/Iot/Setvalue/";
 
     static public final String[] DEV_TYPE_MAP = {"", HUM_STR, TEM_STR, FAN_STR};
-    static public final String[] DEV_UNITY_MAP = {"", "%", "C", "rod"};
+    static public final String[] DEV_UNITY_MAP = {"", "%", "℃", "rod"};
     static public final String   DEV_ALARM_VALUE = "50.00";
     static public final String   DATA_DEFAULT_STR = "N";
 
