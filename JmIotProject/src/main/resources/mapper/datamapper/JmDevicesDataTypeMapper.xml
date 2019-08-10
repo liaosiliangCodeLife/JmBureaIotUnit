@@ -53,6 +53,11 @@
         order by p.mqtt_devsearchId
     </select>
 
+    <select id="selectDevPointByOnlyId" parameterType="String"  resultMap="JmDevicesDataTypeReslut">
+        <include refid="mqttDevPointV"/>
+        where  p.mqtt_devonlyId = #{OnlyId}
+    </select>
+
     <update id="updateDevPonit" parameterType="JmDevicesDataType">
       update Jm_IotDevicesData_Table
       <set>

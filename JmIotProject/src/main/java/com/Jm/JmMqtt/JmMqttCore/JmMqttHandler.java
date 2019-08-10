@@ -30,6 +30,7 @@ import java.util.List;
 @Service
 public class JmMqttHandler  implements JmMqttHandlerServices {
     private static final Logger mqttLogger =  LoggerFactory.getLogger(JmMqttConfigure.class);
+    private static final String HandlerTag = "MqttHandlerServices";
 
     /*
      * @Author Liaosiliang
@@ -39,20 +40,30 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
      * @return void
      **/
     private boolean handleCommonMsg(String vTopic, String vPayload, String vAction){
-        JmReportEventMsg iRepMsg = JSON.parseObject(vPayload, JmReportEventMsg.class);
+
+        JmReportEventMsg iRepMsg = null;
+
+        try {
+            iRepMsg = JSON.parseObject(vPayload, JmReportEventMsg.class);
+        }catch (Exception e){
+            mqttLogger.error("Invalid Json Data : " + vPayload + " Please Check !!!!");
+            return false;
+        }
 
         if(!iRepMsg.CheckDataValid()){
-            mqttLogger.error("Invalid Report Message : " + mqttLogger + "  With Topic : " + vTopic);
+            mqttLogger.error("Invalid Report Message : " + vPayload + "  With Topic : " + vTopic);
             return false;
         }
 
         String iOnlyId = iRepMsg.getDevId() + "@" + iRepMsg.getDevType();
         JmDevicesDataType iSearch = JmMqttDataUnity.getInstance().getDevHashTable().get(iOnlyId);
+
         if( null != iSearch ){
             iSearch.setAlarmVakue(Double.toString(new  Double(iRepMsg.getAlarmValue())/new Double(100.00)));
             iSearch.setValue(Double.toString(new Double(iRepMsg.getDevValue())/new Double(100.00)));
 
             JmDeviceEventRecordType iRec = new JmDeviceEventRecordType();
+
             iRec.fillWithDevType(iSearch);
             iRec.fillWithReportMsg(iRepMsg, vTopic);
             iRec.setAction(vAction);
@@ -79,7 +90,14 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
      **/
     @SubTopic(name = "/Jm/Iot/RegisterDevice")
     private void handleRegisterMsg(String vTopic, String vPayload){
-        JmRegMsg iRegMsg = JSON.parseObject(vPayload, JmRegMsg.class);
+
+        JmRegMsg iRegMsg = null;//JSON.parseObject(vPayload, JmRegMsg.class);
+        try {
+            iRegMsg = JSON.parseObject(vPayload, JmRegMsg.class);
+        }catch (Exception e){
+            mqttLogger.error("Invalid Json Data: " + vPayload + "wittopic " + vTopic);
+            return ;
+        }
 
         if(!iRegMsg.CheckDataValid()){
             mqttLogger.error("Invalid Json Data:"+  vPayload + "With Topic : "  + vTopic);
@@ -108,7 +126,9 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
             if( !JmMqttDataUnity.getInstance().getDevHashTable().containsKey(iTmpType.getOnlyOne())) {
                 iBack.setResultCode(JmMqttUntils.OK_CODE);
                 JmMqttDataUnity.getInstance().getHandleDataTable().insertDevPoint(iTmpType);
-                JmMqttDataUnity.getInstance().getDevHashTable().put(iTmpType.getOnlyOne(),iTmpType);
+                JmDevicesDataType iUpdateTable =  JmMqttDataUnity.getInstance().getHandleDataTable().selectDevPointByOnlyId(iTmpType.getOnlyOne());
+                JmMqttDataUnity.getInstance().getDevHashTable().put(iTmpType.getOnlyOne(),iUpdateTable);
+
             }else{
                 iBack.setResultCode(JmMqttUntils.ALREADY_REGISTER_CODE);
                 mqttLogger.error("====================Error Start============================");
@@ -135,7 +155,6 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
      **/
     @SubTopic(name = "/Jm/Iot/ReportEvent")
     private void handleReportEventMsg(String vTopic, String vPayload){
-        System.out.println("Msg: " + vPayload);
         handleCommonMsg(vTopic, vPayload, "ReportEvent");
        // ExcelUtil<JmDeviceEventRecordType> util = new ExcelUtil<JmDeviceEventRecordType>(JmDeviceEventRecordType.class);
         //util.exportExcel(JmMqttDataUnity.getInstance().getRecordTable().selectAllMqttDevicesRecord(), "TestExcel");
@@ -178,14 +197,13 @@ public class JmMqttHandler  implements JmMqttHandlerServices {
      * @return void
      **/
     public void IotMqttMainHanlder(String vTopic, String vPayload)  {
-        System.out.println("Handle with Topic: " + vTopic);
-        System.out.println("Handle with Msg: " + vPayload);
 
         Method[]iMethod = this.getClass().getDeclaredMethods();
         for(int i=0; i <iMethod.length; i++){
             SubTopic iTopic = iMethod[i].getAnnotation(SubTopic.class);
             if(iTopic != null && isTopic(iTopic.name(), vTopic)){
                 try {
+                    mqttLogger.debug("Start Invoke Method!!!!");
                     iMethod[i].invoke(this, vTopic, vPayload);
                     return;
                 } catch (IllegalAccessException e) {

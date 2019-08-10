@@ -26,4 +26,6 @@ public interface JmDevicesDataServices {
     public void updateDevPonit(JmDevicesDataType vPoint);
 
     public List<JmDevicesDataType> selectAllDevPoint();
+
+    public JmDevicesDataType selectDevPointByOnlyId(String OnlyId);
 }

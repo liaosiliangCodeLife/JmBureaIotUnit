@@ -18,4 +18,5 @@ public interface JmDeviceDataMapper {
 
     public List<JmDevicesDataType> selectAllDevPoint();
 
+    public JmDevicesDataType selectDevPointByOnlyId(String OnlyId);
 }

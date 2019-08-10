@@ -64,6 +64,13 @@ public class JmMqttUntils {
         return null;
     }
 
+    /*
+     * @Author Liaosiliang
+     * @Description //TODO
+     * @Date 13:57 2019/8/9
+     * @Param [vClass]
+     * @return java.lang.String[]
+     **/
     public static <T> String[] getAllTopicFromClass(Class<T> vClass){
         List<String> iCacheStr = new ArrayList<String>();
         Method[] iMethods = vClass.getDeclaredMethods();

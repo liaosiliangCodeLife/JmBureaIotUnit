@@ -58,5 +58,10 @@ public class JmDevicesDataImpl implements JmDevicesDataServices {
     public List<JmDevicesDataType> selectAllDevPoint() {
         return mPointMapper.selectAllDevPoint();
     }
+
+    @Override
+    public JmDevicesDataType selectDevPointByOnlyId(String OnlyId) {
+        return mPointMapper.selectDevPointByOnlyId(OnlyId);
+    }
 }
 
