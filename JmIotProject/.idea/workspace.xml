@@ -8,7 +8,14 @@
   <component name="ChangeListManager">
     <list default="true" id="f914b43d-2016-44d6-ba74-a932c16b1a79" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql/JmProDataBaseInit.sql" beforeDir="false" afterPath="$PROJECT_DIR$/mysql/JmProDataBaseInit.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Jm/JmCommon/base/JmMqttUntils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Jm/JmCommon/base/JmMqttUntils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/DataType/JmDeviceEventRecordType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/DataType/JmDeviceEventRecordType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/JmServices/Impl/JmDevicesDataImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/JmServices/Impl/JmDevicesDataImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/JmServices/JmDevicesDataServices.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/JmServices/JmDevicesDataServices.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/mapper/JmDeviceDataMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Jm/JmDataBase/mapper/JmDeviceDataMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/datamapper/JmDevicesDataTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/datamapper/JmDevicesDataTypeMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,59 +47,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttData/JmReportEventMsg.java">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/1.3.2/mybatis-spring-boot-autoconfigure-1.3.2.jar!/org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmThreadPool/JmAsynServices.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttInterface/JmMqttHandlerServices.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="52" column="100" selection-start-line="52" selection-start-column="100" selection-end-line="52" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmThreadPool/JmAsynTaskImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmIotApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1047#1048#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1809">
+              <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -100,38 +58,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/JmServices/Impl/JmDevicesDataImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            <state relative-caret-position="324">
+              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
               <folding>
+                <element signature="e#1332#1333#0" expanded="true" />
                 <element signature="e#1383#1384#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmCommon/base/JmMqttUntils.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmIotApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="36" column="45" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttPublishConfigure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttDataUnity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3429">
-              <caret line="150" selection-start-line="150" selection-end-line="150" />
+            <state relative-caret-position="386">
+              <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#980#981#0" expanded="true" />
+                <element signature="e#1047#1048#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,6 +100,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttDataUnity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttData/JmReportEventMsg.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttData/JmRegMsg.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/DataType/JmDeviceEventRecordType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/JmServices/JmDevicesDataServices.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/mapper/JmDeviceDataMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/JmServices/Impl/JmDevicesDataImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/datamapper/JmDevicesDataTypeMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmCommon/base/JmMqttUntils.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/datamapper/JmDevicesReportEventMapper.xml" />
+        <option value="$PROJECT_DIR$/mysql/JmProDataBaseInit.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.java" />
       </list>
     </option>
@@ -187,10 +141,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
+    <option name="x" value="536" />
+    <option name="y" value="285" />
     <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="height" value="863" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -198,7 +152,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -209,6 +163,11 @@
             <path>
               <item name="JmIotProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="JmIotProject" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JmIotProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JmIotProject" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -239,7 +198,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Jm" type="462c0819:PsiDirectoryNode" />
-              <item name="JmMqtt" type="462c0819:PsiDirectoryNode" />
+              <item name="JmHttp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JmIotProject" type="b2602c69:ProjectViewProjectNode" />
@@ -248,8 +207,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Jm" type="462c0819:PsiDirectoryNode" />
-              <item name="JmMqtt" type="462c0819:PsiDirectoryNode" />
-              <item name="JmMqttCore" type="462c0819:PsiDirectoryNode" />
+              <item name="JmHttp" type="462c0819:PsiDirectoryNode" />
+              <item name="controler" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JmIotProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JmIotProject" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JmIotProject" type="b2602c69:ProjectViewProjectNode" />
@@ -260,7 +226,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,8 +236,8 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564922560408" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565513841721" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../jmv-sensor" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -323,12 +289,16 @@
       <workItem from="1564902779598" duration="3020000" />
       <workItem from="1565009098230" duration="1152000" />
       <workItem from="1565065600631" duration="175000" />
-      <workItem from="1565065899417" duration="1195000" />
+      <workItem from="1565065899417" duration="2371000" />
+      <workItem from="1565142134163" duration="512000" />
+      <workItem from="1565315563050" duration="17445000" />
+      <workItem from="1565499945787" duration="1060000" />
+      <workItem from="1567233615706" duration="1438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29581000" />
+    <option name="totallyTimeSpent" value="54589000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -340,10 +310,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2531983" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21055438" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -353,7 +322,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4067245" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.40563992" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -369,7 +338,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" sideWeight="0.4978308" visible="true" weight="0.18070363" />
+      <window_info anchor="right" id="Maven" order="3" sideWeight="0.4978308" visible="true" weight="0.10074627" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="Database" order="6" weight="0.32910448" />
@@ -382,6 +351,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/Jm/JmIotApplication.java</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmCommon/datasource/DynamicDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -390,13 +371,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -421,27 +395,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttConfigure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmCommon/common/DateUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="22" column="39" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/DataType/BaseDataType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -453,13 +406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/DataType/JmDeviceEventRecordType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -491,20 +437,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttData/JmRegMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="69" column="32" selection-start-line="69" selection-start-column="32" selection-end-line="69" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttData/JmReportEventMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="51" column="29" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmThreadPool/JmAsynServices.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -512,38 +444,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttInterface/JmMqttHandlerServices.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/DataType/JmDeviceEventRecordType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        <state relative-caret-position="405">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmIotApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmThreadPool/JmAsynTaskImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1047#1048#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/JmServices/Impl/JmDevicesDataImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="48" selection-start-line="48" selection-end-line="48" />
-          <folding>
-            <element signature="e#1383#1384#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmCommon/base/JmMqttUntils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="36" column="45" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="45" />
+        <state relative-caret-position="378">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -554,6 +465,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://D:/Java/jdk/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="553" column="13" selection-start-line="553" selection-start-column="13" selection-end-line="553" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/JmServices/JmDevicesDataServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/mapper/JmDeviceDataMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="20" column="61" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttData/JmRegMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttData/JmReportEventMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmCommon/base/JmMqttUntils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="83" column="5" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="129" column="102" selection-start-line="129" selection-start-column="102" selection-end-line="129" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmCommon/common/DateUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="22" column="39" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/datamapper/JmDevicesReportEventMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2322">
+          <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql/JmProDataBaseInit.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttConfigure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/datamapper/JmDevicesDataTypeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1539">
+          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttInterface/JmMqttHandlerServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1809">
+          <caret line="67" column="13" selection-start-line="67" selection-start-column="13" selection-end-line="67" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttDataUnity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3429">
@@ -561,17 +577,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmThreadPool/JmAsynTaskImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/spring/boot/mybatis-spring-boot-autoconfigure/1.3.2/mybatis-spring-boot-autoconfigure-1.3.2.jar!/org/mybatis/spring/boot/autoconfigure/MybatisAutoConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="1809">
+          <caret line="108" column="9" selection-start-line="108" selection-start-column="9" selection-end-line="108" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmMqtt/JmMqttCore/JmMqttHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmDataBase/JmServices/Impl/JmDevicesDataImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="52" column="100" selection-start-line="52" selection-start-column="100" selection-end-line="52" selection-end-column="100" />
+        <state relative-caret-position="324">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding>
+            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="e#1383#1384#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/Jm/JmIotApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="20" column="12" lean-forward="true" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
